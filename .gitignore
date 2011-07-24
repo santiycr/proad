@@ -4,6 +4,5 @@ db/*.sqlite3
 log/*.log
 tmp
 **.svn
-*.lock
 **.DS_Store
 **sauce_connect.log
