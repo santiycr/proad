@@ -1,0 +1,46 @@
+<% if rol 'sm' %>
+  <div style="text-align:right">
+      <%= link_to 'Editar', edit_proyecto_path(@proyecto) %>
+      | <%= link_to 'Usuarios', proyecto_usuarios_path(@proyecto) %>
+  </div>
+<% end %>
+
+<h1>
+  <%= @proyecto.nombre %>
+</h1>
+
+<p>
+  <%= @proyecto.descripcion %>
+</p>
+
+<p>
+  <b>Fecha entrega:</b>
+  <%= @proyecto.fecha_entrega %>
+  <br>
+  <b>Duracion sprint:</b>
+  <%= @proyecto.duracion_sprint %>
+</p>
+
+
+<h2>Backlog</h2>
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Complejidad</th>
+    <th></th>
+  </tr>
+
+<% @us.each do |userstory| %>
+  <tr>
+    <td><%= userstory.titulo %></td>
+    <td><%= userstory.complejidad %></td>
+    <td style="text-align:right">
+    <%= link_to 'Ver', proyecto_userstory_path(@proyecto, userstory) %>
+    <% if rol 'po' %>
+      | <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, userstory) %>
+      | <%= link_to 'Eliminar', proyecto_userstory_path(@proyecto, userstory), :confirm => 'Eliminar user story?', :method => :delete %></td>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

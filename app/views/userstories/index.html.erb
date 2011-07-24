@@ -1,0 +1,29 @@
+<h1>Backlog</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Descripcion</th>
+    <th>Prioridad</th>
+    <th>Complejidad</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @userstories.each do |userstory| %>
+  <tr>
+    <td><%= userstory.titulo %></td>
+    <td><%= userstory.descripcion %></td>
+    <td><%= userstory.prioridad %></td>
+    <td><%= userstory.complejidad %></td>
+    <td><%= link_to 'Ver', proyecto_userstory_path(@proyecto, userstory) %></td>
+    <td><%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, userstory) %></td>
+    <td><%= link_to 'Eliminar', proyecto_userstory_path(@proyecto, userstory), :confirm => 'Eliminar tarea?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Userstory', new_proyecto_userstory_path %>

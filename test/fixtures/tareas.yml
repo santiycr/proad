@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  titulo: MyString
+  descripcion: MyText
+  porcentaje_avance: 1
+  horas_dedicadas: 1
+
+two:
+  titulo: MyString
+  descripcion: MyText
+  porcentaje_avance: 1
+  horas_dedicadas: 1

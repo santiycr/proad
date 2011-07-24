@@ -1,0 +1,29 @@
+<h1>Tareas</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Descripcion</th>
+    <th>Porcentaje avance</th>
+    <th>Horas dedicadas</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tareas.each do |tarea| %>
+  <tr>
+    <td><%= tarea.titulo %></td>
+    <td><%= tarea.descripcion %></td>
+    <td><%= tarea.porcentaje_avance %></td>
+    <td><%= tarea.horas_dedicadas %></td>
+    <td><%= link_to 'Ver', proyecto_userstory_tarea_path(@proyecto, @us, tarea) %></td>
+    <td><%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @us, tarea) %></td>
+    <td><%= link_to 'Eliminar', proyecto_userstory_tarea_path(@proyecto, @us, tarea), :confirm => 'Eliminar tarea?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Tarea', new_proyecto_userstory_tarea_path %>

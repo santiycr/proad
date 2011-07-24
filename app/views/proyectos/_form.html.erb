@@ -1,0 +1,36 @@
+<%= form_for(@proyecto) do |f| %>
+  <% if @proyecto.errors.any? %>
+    <div id="error_explanation">
+        <p class="error">
+        <%= pluralize(@proyecto.errors.count, "error", "errores") %> guardando proyecto:<br>
+        <% @proyecto.errors.full_messages.each do |msg| %>
+            - <%= msg %><br>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, :class => 'title' %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_comienzo %><br />
+    <%= f.date_select :fecha_comienzo %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_entrega %><br />
+    <%= f.date_select :fecha_entrega %>
+  </div>
+  <div class="field">
+    <%= f.label :duracion_sprint %><br />
+    <%= f.text_field :duracion_sprint %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Guardar', :'data-disable-with' => 'Guardando...' %>
+  </div>
+<% end %>

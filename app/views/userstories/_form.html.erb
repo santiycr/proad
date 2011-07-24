@@ -1,0 +1,61 @@
+<%= form_for([@proyecto, @userstory]) do |f| %>
+  <% if @userstory.errors.any? %>
+    <div id="error_explanation">
+        <p class="error">
+        <%= pluralize(@userstory.errors.count, "error", "errores") %> guardando user story:<br>
+        <% @userstory.errors.full_messages.each do |msg| %>
+            - <%= msg %><br>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo, :class => 'title' %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :prioridad %>:
+    <%= f.text_field :prioridad, :style => "border:0; font-weight:bold;" %>
+    <div id="prioridad-slider" style="width:200px;margin:0 0 10px 10px"></div>
+    <script>
+    $(function() {
+      $( "#prioridad-slider" ).slider({
+        value: $("#userstory_prioridad").val(),
+        min: 1,
+        max: 5,
+        step: 1,
+        slide: function( event, ui ) {
+          $("#userstory_prioridad").val(6 - ui.value);
+        }
+      });
+    });
+    </script>
+  </div>
+  <div class="field">
+    <%= f.label :complejidad %>:
+    <%= f.text_field :complejidad, :style => "border:0; font-weight:bold;" %>
+    <div id="complejidad-slider" style="width:200px;margin:0 0 10px 10px"></div>
+    <script>
+    $(function() {
+      $( "#complejidad-slider" ).slider({
+        value: $("#userstory_complejidad").val(),
+        min: 1,
+        max: 5,
+        step: 1,
+        slide: function( event, ui ) {
+          $("#userstory_complejidad").val(ui.value);
+        }
+      });
+    });
+    </script>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Guardar', :'data-disable-with' => 'Guardando...' %>
+  </div>
+<% end %>

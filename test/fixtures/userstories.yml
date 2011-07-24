@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  titulo: MyString
+  descripcion: MyText
+  prioridad: 1
+  sprint: 1
+  complejidad: 1
+
+two:
+  titulo: MyString
+  descripcion: MyText
+  prioridad: 1
+  sprint: 1
+  complejidad: 1

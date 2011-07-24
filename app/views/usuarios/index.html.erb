@@ -1,0 +1,29 @@
+<h1>Usuarios</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Nombre</th>
+    <th>Rol</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%= usuario.username %></td>
+    <td><%= usuario.nombre %></td>
+    <td><%= usuario.get_rol %></td>
+    <td><%= usuario.email %></td>
+    <td><%= link_to 'Ver', proyecto_usuario_path(@proyecto, usuario) %></td>
+    <td><%= link_to 'Editar', edit_proyecto_usuario_path(@proyecto, usuario) %></td>
+    <td><%= link_to 'Eliminar', proyecto_usuario_path(@proyecto, usuario), :confirm => 'Eliminar usuario?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Usuario', new_proyecto_usuario_path %>

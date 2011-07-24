@@ -1,0 +1,29 @@
+<h1>Listing proyectos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Fecha comienzo</th>
+    <th>Fecha entrega</th>
+    <th>Usuarios</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @proyectos.each do |proyecto| %>
+  <tr>
+    <td><%= proyecto.nombre %></td>
+    <td><%= proyecto.fecha_comienzo %></td>
+    <td><%= proyecto.fecha_entrega %></td>
+    <td><%= proyecto.usuario.all.length %></td>
+    <td><%= link_to 'Dashboard', proyecto %></td>
+    <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
+    <td><%= link_to 'Eliminar', proyecto, :confirm => 'Seguro desea eliminar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Proyecto', new_proyecto_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  descripcion: MyString
+  fecha_comienzo: 2011-07-06
+  fecha_entrega: 2011-07-06
+  duracion_sprint: 1
+
+two:
+  nombre: MyString
+  descripcion: MyString
+  fecha_comienzo: 2011-07-06
+  fecha_entrega: 2011-07-06
+  duracion_sprint: 1

@@ -1,0 +1,28 @@
+<p>
+  <b>Titulo:</b>
+  <%= @userstory.titulo %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @userstory.descripcion %>
+</p>
+
+<p>
+  <b>Prioridad:</b>
+  <%= @userstory.prioridad %>
+</p>
+
+<p>
+  <b>Sprint:</b>
+  <%= @userstory.sprint %>
+</p>
+
+<p>
+  <b>Complejidad:</b>
+  <%= @userstory.complejidad %>
+</p>
+
+
+<%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, @userstory) %> |
+<%= link_to 'Backlog', proyecto_userstories_path %>

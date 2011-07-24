@@ -1,0 +1,67 @@
+/* Layout basico */
+
+body {
+  background-color: #2C4E62;
+}
+#mast {
+  background-color: #0E1C2B;
+}
+#content {
+  min-height: 600px;
+  padding: 50px 30px;
+  background-color: #fff;
+}
+
+/* Mast */
+
+#mast #logo-account-wrap {
+  padding: 20px 20px 0 30px;
+}
+#mast img#logo-mast{
+}
+#mast #account {
+  float: right;
+  color: #FBFCF2;
+  overflow: auto;
+}
+#mast #account a {
+  color: #A0A587;
+  text-decoration: none;
+}
+#mast #account a:hover {
+  text-decoration: underline;
+}
+#mast #nav-wrap {
+  float: left;
+  width: 100%;
+  background-color: #0A131B;
+  border-top: 1px solid #A0A587;
+}
+#mast ul#nav {
+  float: right;
+  margin: 0;
+}
+#mast ul#nav li {
+  list-style: none;
+  float: left;
+  border-right: 1px solid #A0A587;
+}
+#mast ul#nav a {
+  text-decoration: none;
+  padding: 3px 5px;
+  font-weight: bold;
+  display: block;
+}
+#mast ul#nav a {
+  color: #FBFCF2;
+}
+#mast ul#nav a:hover,
+#mast ul#nav a.current {
+  background-color: #A0A587;
+}
+
+/* Mensajes */
+
+.error, .notice, .success {
+  text-align: center;
+}

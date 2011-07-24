@@ -1,0 +1,32 @@
+<%= form_for([@proyecto, @us, @tarea]) do |f| %>
+  <% if @tarea.errors.any? %>
+    <div id="error_explanation">
+        <p class="error">
+        <%= pluralize(@tarea.errors.count, "error", "errores") %> guardando tarea:<br>
+        <% @tarea.errors.full_messages.each do |msg| %>
+            - <%= msg %><br>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo, :class => 'title' %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :porcentaje_avance %><br />
+    <%= f.text_field :porcentaje_avance %>
+  </div>
+  <div class="field">
+    <%= f.label :horas_dedicadas %><br />
+    <%= f.text_field :horas_dedicadas %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Guardar', :'data-disable-with' => 'Guardando...' %>
+  </div>
+<% end %>
