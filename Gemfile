@@ -3,8 +3,8 @@ source 'http://rubygems.org'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'sauce'
 end
+gem 'sauce'
 
 gem 'rails', '3.0.9'
 
