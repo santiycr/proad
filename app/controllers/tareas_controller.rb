@@ -41,7 +41,7 @@ class TareasController < ApplicationController
 
     if @tarea.update_attributes(params[:tarea])
       flash[:success] = 'Tarea actualizada correctamente'
-      redirect_to @tarea
+      redirect_to proyecto_userstory_tarea_path(@proyecto, @us, @tarea)
     else
       render :action => "edit"
     end

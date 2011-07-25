@@ -20,39 +20,11 @@
   </div>
   <div class="field">
     <%= f.label :prioridad %>:
-    <%= f.text_field :prioridad, :style => "border:0; font-weight:bold;" %>
-    <div id="prioridad-slider" style="width:200px;margin:0 0 10px 10px"></div>
-    <script>
-    $(function() {
-      $( "#prioridad-slider" ).slider({
-        value: $("#userstory_prioridad").val(),
-        min: 1,
-        max: 5,
-        step: 1,
-        slide: function( event, ui ) {
-          $("#userstory_prioridad").val(6 - ui.value);
-        }
-      });
-    });
-    </script>
+    <%= f.slider :prioridad, :inverted => true %>
   </div>
   <div class="field">
     <%= f.label :complejidad %>:
-    <%= f.text_field :complejidad, :style => "border:0; font-weight:bold;" %>
-    <div id="complejidad-slider" style="width:200px;margin:0 0 10px 10px"></div>
-    <script>
-    $(function() {
-      $( "#complejidad-slider" ).slider({
-        value: $("#userstory_complejidad").val(),
-        min: 1,
-        max: 5,
-        step: 1,
-        slide: function( event, ui ) {
-          $("#userstory_complejidad").val(ui.value);
-        }
-      });
-    });
-    </script>
+    <%= f.slider :complejidad %>
   </div>
 
   <div class="actions">

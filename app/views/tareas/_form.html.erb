@@ -19,8 +19,8 @@
     <%= f.text_area :descripcion %>
   </div>
   <div class="field">
-    <%= f.label :porcentaje_avance %><br />
-    <%= f.text_field :porcentaje_avance %>
+    <%= f.label :porcentaje_avance %>:
+    <%= f.slider :porcentaje_avance, :step => 10, :max => 100, :min => 0 %>
   </div>
   <div class="field">
     <%= f.label :horas_dedicadas %><br />
