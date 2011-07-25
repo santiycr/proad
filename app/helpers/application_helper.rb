@@ -16,7 +16,7 @@ module ActionView
   module Helpers
     module FormOptionsHelper
       def slider(object_name, method, options = {}, html_options = {})
-        html_options["style"] = "border:0;font-weight:bold;"
+        html_options["style"] = "border:0;width:25px"
         min = (options[:min] or 1)
         max = (options[:max] or 5)
         step = (options.delete(:step) or 1)
@@ -24,27 +24,39 @@ module ActionView
         if range = options.delete("in") || options.delete("within")
           options.update("min" => range.min, "max" => range.max)
         end
+
+        slider_js = "
+$(function() {
+  var slider = $('##{object_name.to_s.dup}_#{method.to_s.dup}_slider'),
+      campo = $('##{object_name.to_s.dup}_#{method.to_s.dup}');
+  slider.slider({
+    value: #{inverted} campo.val(),
+    min: #{min},
+    max: #{max},
+    step: #{step},
+    slide: function( event, ui ) {
+    campo.val(#{inverted} ui.value);
+  }
+});
+campo.change(function(){slider.slider({'value': #{inverted} $(this).val()})});
+});"
         
-        InstanceTag.new(object_name, method, self,
-                        options.delete(:object)).to_input_field_tag('text', html_options)
-                   .safe_concat("
-    <div id=\"#{object_name}_#{method.to_s.dup}_slider\" style=\"width:200px;margin-bottom:10px\"></div>
-    <script type=\"text/javascript\">
-      $(function() {
-        var slider = $('##{object_name.to_s.dup}_#{method.to_s.dup}_slider'),
-            campo = $('##{object_name.to_s.dup}_#{method.to_s.dup}');
-        slider.slider({
-          value: #{inverted} campo.val(),
-          min: #{min},
-          max: #{max},
-          step: #{step},
-          slide: function( event, ui ) {
-            campo.val(#{inverted} ui.value);
-          }
-        });
-        campo.change(function(){slider.slider({'value': #{inverted} $(this).val()})});
-      });
-      </script>")
+        (content_tag(:div,
+                     "",
+                     :id => "#{object_name}_#{method.to_s.dup}_slider",
+                     :style => "width:200px;
+                                margin:0 15px -3px 0;
+                                display:inline-block;") +
+         InstanceTag.new(object_name,
+                         method,
+                         self,
+                         options.delete(:object))
+                    .to_input_field_tag('text',
+                                        html_options) +
+         content_tag(:script,
+                     slider_js,
+                     :type => "text/javascript"))
+
       end
     end
 

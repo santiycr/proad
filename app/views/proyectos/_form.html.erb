@@ -28,7 +28,7 @@
   </div>
   <div class="field">
     <%= f.label :duracion_sprint %><br />
-    <%= f.text_field :duracion_sprint %>
+    <%= f.slider :duracion_sprint, :max => 6 %> semanas
   </div>
   <div class="actions">
     <%= f.submit 'Guardar', :'data-disable-with' => 'Guardando...' %>
