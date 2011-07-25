@@ -1,19 +1,14 @@
-<p>
-  <b>Username:</b>
-  <%= @usuario.username %>
-</p>
+<% content_for :title do %>
+  <%= @usuario.nombre or @usuario.username %>
+<% end %>
 
 <p>
   <b>Nombre:</b>
   <%= @usuario.nombre %>
-</p>
-
-<p>
+  <br>
   <b>Rol:</b>
   <%= @usuario.get_rol %>
-</p>
-
-<p>
+  <br>
   <b>Email:</b>
   <%= @usuario.email %>
 </p>

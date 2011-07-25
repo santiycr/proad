@@ -1,4 +1,6 @@
-<h1>Tareas</h1>
+<% content_for :title do %>
+  Tareas
+<% end %>
 
 <table>
   <tr>
@@ -17,9 +19,9 @@
     <td><%= tarea.descripcion %></td>
     <td><%= tarea.porcentaje_avance %></td>
     <td><%= tarea.horas_dedicadas %></td>
-    <td><%= link_to 'Ver', proyecto_userstory_tarea_path(@proyecto, @us, tarea) %></td>
-    <td><%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @us, tarea) %></td>
-    <td><%= link_to 'Eliminar', proyecto_userstory_tarea_path(@proyecto, @us, tarea), :confirm => 'Eliminar tarea?', :method => :delete %></td>
+    <td><%= link_to 'Ver', proyecto_userstory_tarea_path(@proyecto, @userstory, tarea) %></td>
+    <td><%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @userstory, tarea) %></td>
+    <td><%= link_to 'Eliminar', proyecto_userstory_tarea_path(@proyecto, @userstory, tarea), :confirm => 'Eliminar tarea?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

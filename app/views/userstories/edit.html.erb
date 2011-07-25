@@ -1,5 +1,7 @@
-<h1>Editando userstory</h1>
+<% content_for :title do %>
+  Editar User Story
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Ver', proyecto_userstory_path(@proyecto, @userstory) %> |
+<%= link_to 'Ver user story', proyecto_userstory_path(@proyecto, @userstory) %>

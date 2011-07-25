@@ -1,13 +1,13 @@
+<% content_for :title do %>
+  <%= @proyecto.nombre %>
+<% end %>
+
 <% if rol 'sm' %>
   <div style="text-align:right">
       <%= link_to 'Editar', edit_proyecto_path(@proyecto) %>
       | <%= link_to 'Usuarios', proyecto_usuarios_path(@proyecto) %>
   </div>
 <% end %>
-
-<h1>
-  <%= @proyecto.nombre %>
-</h1>
 
 <p>
   <%= @proyecto.descripcion %>
@@ -30,7 +30,7 @@
     <th></th>
   </tr>
 
-<% @us.each do |userstory| %>
+<% @userstories.each do |userstory| %>
   <tr>
     <td><%= userstory.titulo %></td>
     <td><%= userstory.complejidad %></td>

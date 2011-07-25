@@ -1,7 +1,6 @@
-<p>
-  <b>Titulo:</b>
+<% content_for :title do %>
   <%= @userstory.titulo %>
-</p>
+<% end %>
 
 <p>
   <b>Descripcion:</b>
@@ -11,18 +10,10 @@
 <p>
   <b>Prioridad:</b>
   <%= @userstory.prioridad %>
-</p>
-
-<p>
-  <b>Sprint:</b>
-  <%= @userstory.sprint %>
-</p>
-
-<p>
+  <br>
   <b>Complejidad:</b>
   <%= @userstory.complejidad %>
 </p>
-
 
 <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, @userstory) %> |
 <%= link_to 'Backlog', proyecto_userstories_path %>

@@ -1,7 +1,6 @@
-<p>
-  <b>Titulo:</b>
+<% content_for :title do %>
   <%= @tarea.titulo %>
-</p>
+<% end %>
 
 <p>
   <b>Descripcion:</b>
@@ -11,13 +10,11 @@
 <p>
   <b>Porcentaje avance:</b>
   <%= @tarea.porcentaje_avance %>
-</p>
-
-<p>
+  <br>
   <b>Horas dedicadas:</b>
   <%= @tarea.horas_dedicadas %>
 </p>
 
 
-<%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @us, @tarea) %> |
-<%= link_to 'User Story', proyecto_userstory_path(@proyecto, @us) %>
+<%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @userstory, @tarea) %> |
+<%= link_to 'Backlog', proyecto_userstory_path(@proyecto, @userstory) %>

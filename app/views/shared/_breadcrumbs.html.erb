@@ -2,11 +2,15 @@
 <% if @proyecto %>
   <% if content_for(:title).strip == @proyecto.nombre %>
     <%= @proyecto.nombre %>
+  <% elsif not @proyecto.nombre %>
+    <%= content_for :title %>
   <% else %>
     <%= link_to @proyecto.nombre, proyecto_path(@proyecto) %>
     <% if @userstory %>
       <% if content_for(:title).strip == @userstory.titulo %>
         > <%= @userstory.titulo %>
+      <% elsif not @userstory.titulo %>
+        > <%= content_for :title %>
       <% else %>
         > <%= link_to @userstory.titulo, proyecto_userstory_path(@proyecto, @userstory) %>
         <% if @tarea %>

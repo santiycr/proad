@@ -12,8 +12,8 @@ class ProyectosController < ApplicationController
   # GET /proyectos/1.xml
   def show
     @proyecto = Proyecto.find(params[:id])
-    @us = @proyecto.userstory.all
-    @us.sort! { |a,b| a.prioridad <=> b.prioridad }
+    @userstories = @proyecto.userstory.all
+    @userstories.sort! { |a,b| a.prioridad <=> b.prioridad }
   end
 
   # GET /proyectos/new

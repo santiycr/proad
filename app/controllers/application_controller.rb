@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def find_userstory
     @proyecto = Proyecto.find(params[:proyecto_id])
-    @us = @proyecto.userstory.find(params[:userstory_id])
+    @userstory = @proyecto.userstory.find(params[:userstory_id])
   end
 
   def forzar_login

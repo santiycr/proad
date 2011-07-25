@@ -1,5 +1,7 @@
-<h1>Nueva tarea</h1>
+<% content_for :title do %>
+  Nueva tarea
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Volver a User Story', proyecto_userstory_path(@proyecto, @us) %>
+<%= link_to 'Volver a User Story', proyecto_userstory_path(@proyecto, @userstory) %>
