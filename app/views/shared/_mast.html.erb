@@ -1,0 +1,27 @@
+  <div id="mast">
+      <div id="logo-account-wrap">
+          <%= image_tag "ProAd.png", :id => 'logo-mast' %>
+          <% if current_user %>
+              <div id="account">
+                  <p>Bienvenido, <%= current_user.nombre or current_user.username %> |
+                  <%= link_to 'Logout', :controller => 'usuarios', :action => 'logout' %>
+              </div>
+          <% end %>
+      </div>
+
+      <div id="nav-wrap">
+          <ul id="nav">
+              <% if current_user %>
+                  <% if rol "admin" %>
+                      <li><%= nav_link 'Proyectos', proyectos_path %></li>
+                  <% else %>
+                      <li><%= nav_link 'Proyecto', current_user.proyecto %></li>
+                  <% end %>
+                  <% if rol "po", :no_admin => true %>
+                      <li><%= nav_link 'Backlog', proyecto_userstories_path(current_user.proyecto) %></li>
+                      <li><%= nav_link 'Nueva User Story', new_proyecto_userstory_path(current_user.proyecto) %></li>
+                  <% end %>
+              <% end %>
+          </ul>
+      </div>
+  </div>

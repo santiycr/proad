@@ -1,0 +1,33 @@
+<p id="breadcrumbs" class="quiet">
+<% if @proyecto %>
+  <% if content_for(:title).strip == @proyecto.nombre %>
+    <%= @proyecto.nombre %>
+  <% else %>
+    <%= link_to @proyecto.nombre, proyecto_path(@proyecto) %>
+    <% if @userstory %>
+      <% if content_for(:title).strip == @userstory.titulo %>
+        > <%= @userstory.titulo %>
+      <% else %>
+        > <%= link_to @userstory.titulo, proyecto_userstory_path(@proyecto, @userstory) %>
+        <% if @tarea %>
+          <% if content_for(:title).strip == @tarea.titulo %>
+            > <%= @tarea.titulo %>
+          <% else %>
+            > <%= content_for :title %>
+          <% end %>
+        <% else %>
+          > <%= content_for :title %>
+        <% end %>
+      <% end %>
+    <% elsif @usuario %>
+      <% if content_for(:title).strip == @usuario.nombre %>
+        > <%= @usuario.nombre %>
+      <% else %>
+        > <%= content_for :title %>
+      <% end %>
+    <% else %>
+      > <%= content_for :title %>
+    <% end %>
+  <% end %>
+<% end %>
+</p>
