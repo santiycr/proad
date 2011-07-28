@@ -1,3 +1,7 @@
+<% content_for :title do %>
+	Login
+<% end %>
+
 <%= form_tag("/login", :method => "post") do %>
   <%= label_tag(:username, "Usuario") %>
   <%= text_field_tag(:username) %><br/>
