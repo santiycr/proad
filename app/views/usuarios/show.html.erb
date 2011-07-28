@@ -2,6 +2,11 @@
   <%= @usuario.nombre or @usuario.username %>
 <% end %>
 
+<% content_for :special_links do %>
+  <%= link_to 'Editar', edit_proyecto_usuario_path(@proyecto, @usuario) %> |
+  <%= link_to 'Nuevo Usuario', new_proyecto_usuario_path %>
+<% end %>
+
 <p>
   <b>Nombre:</b>
   <%= @usuario.nombre %>
@@ -12,7 +17,3 @@
   <b>Email:</b>
   <%= @usuario.email %>
 </p>
-
-
-<%= link_to 'Editar', edit_proyecto_usuario_path(@proyecto, @usuario) %> |
-<%= link_to 'Volver a usuarios', proyecto_usuarios_path %>

@@ -2,6 +2,10 @@
   Proyectos
 <% end %>
 
+<% content_for :special_links do %>
+  <%= link_to 'Nuevo Proyecto', new_proyecto_path %>
+<% end %>
+
 <table>
   <tr>
     <th>Nombre</th>
@@ -25,7 +29,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nuevo Proyecto', new_proyecto_path %>

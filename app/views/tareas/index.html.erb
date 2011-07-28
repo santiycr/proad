@@ -2,6 +2,10 @@
   Tareas
 <% end %>
 
+<% content_for :special_links do %>
+  <%= link_to 'Nueva Tarea', new_proyecto_userstory_tarea_path %>
+<% end %>
+
 <table>
   <tr>
     <th>Titulo</th>
@@ -25,7 +29,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nueva Tarea', new_proyecto_userstory_tarea_path %>

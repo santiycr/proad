@@ -2,6 +2,11 @@
   <%= @tarea.titulo %>
 <% end %>
 
+<% content_for :special_links do %>
+  <%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @userstory, @tarea) %> |
+  <%= link_to 'Nueva Tarea', new_proyecto_userstory_tarea_path %>
+<% end %>
+
 <p>
   <b>Descripcion:</b>
   <%= @tarea.descripcion %>
@@ -16,5 +21,4 @@
 </p>
 
 
-<%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @userstory, @tarea) %> |
 <%= link_to 'Backlog', proyecto_userstory_path(@proyecto, @userstory) %>

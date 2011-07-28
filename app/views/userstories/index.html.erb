@@ -2,6 +2,10 @@
   Backlog
 <% end %>
 
+<% content_for :scpecial_links do %>
+  <%= link_to 'Nueva Userstory', new_proyecto_userstory_path %>
+<% end %>
+
 <table>
   <tr>
     <th>Titulo</th>
@@ -25,7 +29,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nueva Userstory', new_proyecto_userstory_path %>

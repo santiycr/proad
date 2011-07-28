@@ -2,6 +2,10 @@
   Usuarios
 <% end %>
 
+<% content_for :special_links do %>
+  <%= link_to 'Nuevo Usuario', new_proyecto_usuario_path %>
+<% end %>
+
 <table>
   <tr>
     <th>Username</th>
@@ -25,7 +29,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nuevo Usuario', new_proyecto_usuario_path %>
