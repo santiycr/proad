@@ -65,3 +65,11 @@ body {
 .error, .notice, .success {
   text-align: center;
 }
+
+/* other */
+
+#special-links {
+  float: right;
+  width: 200px;
+  text-align: right;
+}

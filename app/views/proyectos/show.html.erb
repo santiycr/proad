@@ -3,10 +3,10 @@
 <% end %>
 
 <% if rol 'sm' %>
-  <div style="text-align:right">
+  <% content_for 'special_links' do %>
       <%= link_to 'Editar', edit_proyecto_path(@proyecto) %>
       | <%= link_to 'Usuarios', proyecto_usuarios_path(@proyecto) %>
-  </div>
+  <% end %>
 <% end %>
 
 <p>

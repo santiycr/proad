@@ -38,11 +38,8 @@ Sauce.config do |conf|
     conf.browsers = [
         ["Windows 2003", "firefox", "3.6."]
     ]
-    conf.application_host = "127.0.0.1"
-    conf.application_port = "3001"
     conf.browser = "firefox"
     conf.os = "Windows 2003"
     conf.browser_version = "3.6."
 end
 
-Capybara.app_host = "http://google.com"

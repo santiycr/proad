@@ -28,6 +28,7 @@
 
   <div id="content">
     <%= render "shared/breadcrumbs" %>
+    <div id="special-links"><%= content_for 'special_links' %></div>
     <%= render "shared/notices" %>
     <h1><%= content_for :title %></h1>
     <%= yield %>

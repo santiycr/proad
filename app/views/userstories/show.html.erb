@@ -2,6 +2,10 @@
   <%= @userstory.titulo %>
 <% end %>
 
+<% content_for :special_links do %>
+  <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, @userstory) %>
+<% end %>
+
 <p>
   <b>Descripcion:</b>
   <%= @userstory.descripcion %>
@@ -15,5 +19,3 @@
   <%= @userstory.complejidad %>
 </p>
 
-<%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, @userstory) %> |
-<%= link_to 'Backlog', proyecto_userstories_path %>
