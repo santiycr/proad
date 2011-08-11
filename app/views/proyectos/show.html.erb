@@ -21,7 +21,6 @@
   <%= @proyecto.duracion_sprint %>
 </p>
 
-
 <h2>Backlog</h2>
 <table>
   <tr>
@@ -45,4 +44,9 @@
     </td>
   </tr>
 <% end %>
+<tr>
+  <td colspan=4 style="text-align:center;background-color:#ddd">
+    Mostrando solo tareas sin completar. <%= link_to 'Ver todas', proyecto_userstories_path(@proyecto) %>.
+  </td>
+</tr>
 </table>

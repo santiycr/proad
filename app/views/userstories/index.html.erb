@@ -1,31 +1,53 @@
 <% content_for :title do %>
-  Backlog
+  Backlogs
 <% end %>
 
 <% content_for :scpecial_links do %>
   <%= link_to 'Nueva Userstory', new_proyecto_userstory_path %>
 <% end %>
 
+<h2>Product Backlog</h2>
 <table>
   <tr>
     <th>Titulo</th>
     <th>Descripcion</th>
+    <th>Avance</th>
     <th>Prioridad</th>
     <th>Complejidad</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
-<% @userstories.each do |userstory| %>
+<% @incompletas.each do |userstory| %>
   <tr>
-    <td><%= userstory.titulo %></td>
-    <td><%= userstory.descripcion %></td>
+    <td><%= link_to userstory.titulo, proyecto_userstory_path(@proyecto, userstory) %></td>
+    <td><%= truncate(userstory.descripcion, :length => 50) %></td>
+    <td><%= userstory.porcentaje_avance %></td>
     <td><%= userstory.prioridad %></td>
     <td><%= userstory.complejidad %></td>
-    <td><%= link_to 'Ver', proyecto_userstory_path(@proyecto, userstory) %></td>
     <td><%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, userstory) %></td>
     <td><%= link_to 'Eliminar', proyecto_userstory_path(@proyecto, userstory), :confirm => 'Eliminar tarea?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Userstories Completadas</h2>
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Descripcion</th>
+    <th>Avance</th>
+    <th>Prioridad</th>
+    <th>Complejidad</th>
+  </tr>
+
+<% @completas.each do |userstory| %>
+  <tr class="completa">
+    <td><%= link_to userstory.titulo, proyecto_userstory_path(@proyecto, userstory) %></td>
+    <td><%= truncate(userstory.descripcion, :length => 50) %></td>
+    <td><%= userstory.porcentaje_avance %></td>
+    <td><%= userstory.prioridad %></td>
+    <td><%= userstory.complejidad %></td>
   </tr>
 <% end %>
 </table>

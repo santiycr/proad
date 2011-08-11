@@ -6,7 +6,9 @@ class UserstoriesController < ApplicationController
   # GET /proyectos/:proyecto_id/userstories
   # GET /proyectos/:proyecto_id/userstories.xml
   def index
-    @userstories = @proyecto.userstory.all
+    @backlog = @proyecto.userstory.order(:prioridad)
+    @completas = @backlog.completas
+    @incompletas = @backlog.incompletas
   end
 
   # GET /proyectos/:proyecto_id/userstories/:id
