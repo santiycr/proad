@@ -26,13 +26,15 @@
 <table>
   <tr>
     <th>Titulo</th>
+    <th>Avance</th>
     <th>Complejidad</th>
     <th></th>
   </tr>
 
-<% @userstories.each do |userstory| %>
+<% @proyecto.userstory.order(:prioridad).incompletas.each do |userstory| %>
   <tr>
     <td><%= userstory.titulo %></td>
+    <td><%= userstory.porcentaje_avance %></td>
     <td><%= userstory.complejidad %></td>
     <td style="text-align:right">
     <%= link_to 'Ver', proyecto_userstory_path(@proyecto, userstory) %>

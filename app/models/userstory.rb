@@ -5,6 +5,13 @@ class Userstory < ActiveRecord::Base
 
   after_initialize :init
 
+  def self.completas
+    all.delete_if {|us| us.porcentaje_avance < 100 }
+  end
+
+  def self.incompletas
+    all.delete_if {|us| us.porcentaje_avance >= 100 }
+  end
 
   validates_presence_of :proyecto
   validates_numericality_of :prioridad,
@@ -19,6 +26,18 @@ class Userstory < ActiveRecord::Base
   def init
    self.complejidad ||= 3
    self.prioridad ||= 3
+  end
+
+  def porcentaje_avance
+    if self.tarea.count > 0
+      avance = 0
+      self.tarea.each do |tarea|
+        avance += tarea.porcentaje_avance
+      end
+      avance /= self.tarea.count
+    else
+      0
+    end
   end
 
 end
