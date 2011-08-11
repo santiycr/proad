@@ -58,6 +58,14 @@ class UsuariosController < ApplicationController
   # GET /login
   # POST /login
   def login
+    if current_user
+      if current_user.rol == "admin"
+        redirect_to :controller=>'proyectos', :action=>'index'
+      else
+        redirect_to current_user.proyecto
+      end
+    end
+
     if request.method == "POST"
       user = Usuario.find(:first, :conditions=>["username = ?", params[:username]])
 
