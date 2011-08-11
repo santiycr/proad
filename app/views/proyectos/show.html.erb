@@ -32,13 +32,12 @@
 
 <% @proyecto.userstory.order(:prioridad).incompletas.each do |userstory| %>
   <tr>
-    <td><%= userstory.titulo %></td>
+    <td><%= link_to truncate(userstory.titulo, :length => 80), proyecto_userstory_path(@proyecto, userstory) %></td>
     <td><%= userstory.porcentaje_avance %></td>
     <td><%= userstory.complejidad %></td>
     <td style="text-align:right">
-    <%= link_to 'Ver', proyecto_userstory_path(@proyecto, userstory) %>
     <% if rol 'po' %>
-      | <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, userstory) %>
+      <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, userstory) %>
       | <%= link_to 'Eliminar', proyecto_userstory_path(@proyecto, userstory), :confirm => 'Eliminar user story?', :method => :delete %></td>
     <% end %>
     </td>

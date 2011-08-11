@@ -20,7 +20,7 @@
 
 <% @incompletas.each do |userstory| %>
   <tr>
-    <td><%= link_to userstory.titulo, proyecto_userstory_path(@proyecto, userstory) %></td>
+    <td><%= link_to truncate(userstory.titulo, :length => 50), proyecto_userstory_path(@proyecto, userstory) %></td>
     <td><%= truncate(userstory.descripcion, :length => 50) %></td>
     <td><%= userstory.porcentaje_avance %></td>
     <td><%= userstory.prioridad %></td>
@@ -43,7 +43,7 @@
 
 <% @completas.each do |userstory| %>
   <tr class="completa">
-    <td><%= link_to userstory.titulo, proyecto_userstory_path(@proyecto, userstory) %></td>
+    <td><%= link_to truncate(userstory.titulo, :length => 50), proyecto_userstory_path(@proyecto, userstory) %></td>
     <td><%= truncate(userstory.descripcion, :length => 50) %></td>
     <td><%= userstory.porcentaje_avance %></td>
     <td><%= userstory.prioridad %></td>
