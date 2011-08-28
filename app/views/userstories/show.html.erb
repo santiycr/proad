@@ -2,8 +2,13 @@
   <%= @userstory.titulo %>
 <% end %>
 
-<% content_for :special_links do %>
-  <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, @userstory) %>
+<% content_for 'special_links' do %>
+  <% if rol 'sm' %>
+    <%= link_to 'Editar', edit_proyecto_userstory_path(@proyecto, @userstory) %>
+  <% end %>
+  <% if rol 'tm' %>
+    <%= link_to 'Nueva Tarea', new_proyecto_userstory_tarea_path(@proyecto, @userstory) %>
+  <% end %>
 <% end %>
 
 <p>
@@ -17,4 +22,34 @@
   <br>
   <b>Complejidad:</b>
   <%= @userstory.complejidad %>
+  <br>
+  <b>Porcentaje avance:</b>
+  <%= @userstory.porcentaje_avance %>
+  <br>
+  <b>Horas dedicadas:</b>
+  <%= @userstory.horas_dedicadas %>
 </p>
+
+<h2>Tareas</h2>
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Avance</th>
+    <th>Horas dedicadas</th>
+    <th></th>
+  </tr>
+
+<% @userstory.tarea.order(:porcentaje_avance).each do |tarea| %>
+  <tr>
+    <td><%= link_to truncate(tarea.titulo, :length => 80), proyecto_userstory_tarea_path(@proyecto, @userstory, tarea) %></td>
+    <td><%= tarea.porcentaje_avance %></td>
+    <td><%= tarea.horas_dedicadas %></td>
+    <td style="text-align:right">
+    <% if rol 'tm' %>
+      <%= link_to 'Editar', edit_proyecto_userstory_tarea_path(@proyecto, @userstory, tarea) %>
+      | <%= link_to 'Eliminar', proyecto_userstory_tarea_path(@proyecto, @userstory, tarea), :confirm => 'Eliminar tarea?', :method => :delete %></td>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

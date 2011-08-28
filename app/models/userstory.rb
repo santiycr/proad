@@ -40,4 +40,16 @@ class Userstory < ActiveRecord::Base
     end
   end
 
+  def horas_dedicadas
+    if self.tarea.count > 0
+      horas = 0
+      self.tarea.each do |tarea|
+        horas += tarea.horas_dedicadas
+      end
+      horas
+    else
+      0
+    end
+  end
+
 end
