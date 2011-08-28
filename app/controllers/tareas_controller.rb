@@ -29,7 +29,7 @@ class TareasController < ApplicationController
 
     if @tarea.save
       flash[:success] = 'Tarea creada correctamente'
-      redirect_to proyecto_userstory_tarea_path(@proyecto, @userstory, @tarea)
+      redirect_to proyecto_userstory_path(@proyecto, @userstory)
     else
       render :action => "new"
     end
@@ -41,7 +41,7 @@ class TareasController < ApplicationController
 
     if @tarea.update_attributes(params[:tarea])
       flash[:success] = 'Tarea actualizada correctamente'
-      redirect_to proyecto_userstory_tarea_path(@proyecto, @userstory, @tarea)
+      redirect_to proyecto_userstory_path(@proyecto, @userstory)
     else
       render :action => "edit"
     end
@@ -52,6 +52,6 @@ class TareasController < ApplicationController
     @tarea = @userstory.tarea.find(params[:id])
     @tarea.destroy
 
-    redirect_to(proyecto_userstory_tareas_path(@proyecto, @userstory))
+    redirect_to proyecto_userstory_path(@proyecto, @userstory)
   end
 end
