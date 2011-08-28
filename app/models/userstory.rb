@@ -13,6 +13,14 @@ class Userstory < ActiveRecord::Base
     all.delete_if {|us| us.porcentaje_avance >= 100 }
   end
 
+  def self.comenzadas
+    all.delete_if {|us| [0,100].include?(us.porcentaje_avance) }
+  end
+
+  def self.sin_comenzar
+    all.delete_if {|us| us.porcentaje_avance > 0 }
+  end
+
   validates_presence_of :proyecto
   validates_numericality_of :prioridad,
     :only_integer => true,
