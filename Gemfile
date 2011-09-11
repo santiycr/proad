@@ -38,3 +38,4 @@ gem 'sqlite3'
 
 gem 'jquery-rails', '>= 1.0.12'
 gem 'heroku'
+gem 'railroady'
