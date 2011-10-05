@@ -34,10 +34,6 @@ require 'sauce'
 require 'sauce/capybara'
 
 Sauce.config do |conf|
-    conf.browser_url = "http://82915.test/"
-    conf.browsers = [
-        ["Windows 2003", "firefox", "3.6."]
-    ]
     conf.browser = "firefox"
     conf.os = "Windows 2003"
     conf.browser_version = "3.6."

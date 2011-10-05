@@ -9,17 +9,24 @@
   <% end %>
 <% end %>
 
-<p>
-  <%= @proyecto.descripcion %>
-</p>
+<div style="overflow:hidden">
+  <div style="float:left;width:60%">
+  <p>
+    <%= @proyecto.descripcion %>
+  </p>
 
-<p>
-  <b>Fecha entrega:</b>
-  <%= @proyecto.fecha_entrega %>
-  <br>
-  <b>Duracion sprint:</b>
-  <%= @proyecto.duracion_sprint %>
-</p>
+  <p>
+    <b>Fecha entrega:</b>
+    <%= @proyecto.fecha_entrega %>
+    <br>
+    <b>Duracion sprint:</b>
+    <%= @proyecto.duracion_sprint %>
+  </p>
+  </div>
+  <div style="float:right;width:40%">
+    <img style="width:340px;height:190px" src="https://img.skitch.com/20111005-gep7bafauywb2ayusst1u1y7nb.jpg"/>
+  </div>
+</div>
 
 <h2>Backlog</h2>
 <table>
